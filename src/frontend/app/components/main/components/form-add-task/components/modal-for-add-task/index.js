@@ -1,0 +1,1 @@
+export { ModalForAddTask } from './component';

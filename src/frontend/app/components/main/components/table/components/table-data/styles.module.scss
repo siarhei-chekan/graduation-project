@@ -1,0 +1,26 @@
+.open-task {
+    text-decoration: none;
+    color: #525c69;
+}
+
+.open-task-dark {
+    text-decoration: none;
+    color: #fff;
+}
+
+.finished-task {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.btn-link {
+    &:hover {
+        color:#525c69;
+    }
+}
+
+.btn-link-dark {
+    &:hover {
+        color: #fff;
+    }
+}

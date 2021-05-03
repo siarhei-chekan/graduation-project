@@ -1,0 +1,46 @@
+{
+  "name": "graduation-project",
+  "version": "1.0.0",
+  "description": "my graduation project",
+  "repository": {
+    "url": "https://github.com"
+  },
+  "main": "src/backend/index.js",
+  "scripts": {
+    "start:prod:backend": "node ./dist/backend/index.js",
+    "start:dev:backend": "nodemon src/backend/index",
+    "start:prod:frontend": "http-server ./dist",
+    "start:dev:frontend": "webpack serve",
+    "start:dev": "concurrently \"npm run start:dev:frontend\" \"npm run start:dev:backend\"",
+    "start:prod": "npm run build:prod && concurrently \"npm run start:prod:frontend\" \"npm run start:prod:backend\"",
+    "remove:dist": "rimraf ./dist",
+    "copy:backend": "copyfiles -u 1 ./src/backend/**/*.* ./dist",
+    "build:prod": "npm run remove:dist && npm run build:frontend && npm run build:backend",
+    "build:frontend": "webpack",
+    "build:backend": "npm run copy:backend"
+  },
+  "author": "siarhei chekan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "mongodb": "3.6.5",
+    "normalize.css": "8.0.1",
+    "cors": "2.8.5"
+  },
+  "devDependencies": {
+    "webpack": "5.30.0",
+    "webpack-cli": "4.6.0",
+    "copyfiles": "2.4.1",
+    "rimraf": "3.0.2",
+    "html-webpack-plugin": "5.3.1",
+    "mini-css-extract-plugin": "1.4.0",
+    "css-loader": "5.2.0",
+    "http-server": "0.12.3",
+    "webpack-dev-server": "3.11.2",
+    "sass-loader": "11.0.1",
+    "sass": "1.32.8",
+    "webpack-bundle-analyzer": "4.4.0",
+    "concurrently": "6.0.0"
+  }
+}

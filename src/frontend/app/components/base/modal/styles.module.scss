@@ -1,0 +1,20 @@
+.show {
+    display: block;
+}
+
+.content, .col-for-deadline {
+    word-wrap: break-word;
+}
+
+.in-progress {
+    background-color: #FFFF00;
+    color: #000;
+}
+
+.to-do, .postponed {
+    background-color: #D3D3D3;
+}
+
+.done {
+    background-color: #008000;
+}

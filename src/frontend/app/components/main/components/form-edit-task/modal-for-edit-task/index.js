@@ -1,0 +1,1 @@
+export { ModalForEditTask } from './component';
