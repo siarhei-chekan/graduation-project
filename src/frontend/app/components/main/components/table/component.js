@@ -7,7 +7,7 @@ export function Table() {
     const divForResponsiveTable = document.createElement('div');
     const tableOfTasks = document.createElement('table');
 
-    divForResponsiveTable.classList.add('table-responsive', styles.fixedHeight);
+    divForResponsiveTable.classList.add('table-responsive', 'container-fluid', styles.fixedHeight);
     tableOfTasks.classList.add('table', 'table-hover', styles.table);
 
     tableOfTasks.append(TableHead(), TableBody());
