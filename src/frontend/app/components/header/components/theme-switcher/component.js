@@ -32,11 +32,13 @@ function setDarkTheme() {
     const table = main.querySelector('table');
     const buttons = table.querySelectorAll('button');
     const footer = document.querySelector('footer');
+    const divTable = document.querySelector('div[class*="table-responsive"]');
 
     localStorage.setItem('theme', 'dark');
 
     header.classList.add('bg-dark', 'text-white');
     nav.classList.add('navbar-dark');
+    divTable.classList.add(stylesTable.fixedHeightDark);
     table.classList.add('table-dark', stylesTable.tableDarkOpacity);
     buttons.forEach(button => {
         button.classList.add(stylesButton.openTaskDark, stylesButton.btnLinkDark);
@@ -54,6 +56,8 @@ function setLightTheme() {
     const table = main.querySelector('table');
     const buttons = table.querySelectorAll('button');
     const footer = document.querySelector('footer');
+    const divTable = document.querySelector('div[class*="table-responsive"]');
+
 
     localStorage.setItem('theme', 'light');
     
@@ -61,6 +65,7 @@ function setLightTheme() {
 
     header.classList.remove('bg-dark', 'text-white');
     nav.classList.remove('navbar-dark');
+    divTable.classList.remove(stylesTable.fixedHeightDark);
     table.classList.remove('table-dark', stylesTable.tableDarkOpacity);
     buttons.forEach(button => {
         button.classList.remove(stylesButton.openTaskDark, stylesButton.btnLinkDark);

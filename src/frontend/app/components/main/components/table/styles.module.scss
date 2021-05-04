@@ -5,3 +5,12 @@
 .table-dark-opacity {
     opacity: 0.9;
 }
+
+.fixed-height {
+    height: calc(100vh - 74px - 54px);
+}
+
+.fixed-height-dark {
+    background-color: #212529;
+    opacity: 0.9;
+}
