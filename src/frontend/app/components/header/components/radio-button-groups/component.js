@@ -58,7 +58,7 @@ function RadioButtonForNextWeek() {
 
     label.classList.add('btn', 'btn-outline-primary');
     label.setAttribute('for', 'nextWeek');
-    label.textContent = 'Next Week';
+    label.textContent = 'Current Week';
     label.addEventListener('click', sortByWeek);
 
     btn.append(input, label);
@@ -80,7 +80,7 @@ function RadioButtonForNextMonth() {
 
     label.classList.add('btn', 'btn-outline-primary');
     label.setAttribute('for', 'nextMonth');
-    label.textContent = 'Next Month';
+    label.textContent = 'Current Month';
     label.addEventListener('click', sortByMonth);
 
     btn.append(input, label);
@@ -102,7 +102,7 @@ function RadioButtonForNextYear() {
 
     label.classList.add('btn', 'btn-outline-primary');
     label.setAttribute('for', 'nextYear');
-    label.textContent = 'Next Year';
+    label.textContent = 'Current Year';
     label.addEventListener('click', sortByYear);
 
     btn.append(input, label);
