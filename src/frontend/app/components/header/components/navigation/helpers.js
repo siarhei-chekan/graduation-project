@@ -84,6 +84,59 @@ export function search(e) {
             break;
         }
 
+        case sorting.currentDay: {
+            if (q.length > 1) {
+                tasksService.getAllTasks()
+                .then(tasks => {                    
+                    const fr = document.createDocumentFragment();
+                    const tableBody = document.querySelector('tbody');
+                    const currentDate = new Date();
+                    const currentDay = currentDate.getDate();
+                    const currentMonth = currentDate.getMonth();
+                    const currentYear = currentDate.getFullYear();
+        
+                    tasks.forEach(task => {
+                        const deadlineDate = new Date(task.deadline);
+                        const deadlineDay = deadlineDate.getDate();
+                        const deadlineMonth = deadlineDate.getMonth();
+                        const deadlineYear = deadlineDate.getFullYear();
+
+                        if ((task.heading).toLowerCase().includes(q) && (currentDay === deadlineDay) && (currentMonth === deadlineMonth) && (currentYear === deadlineYear)) {
+                            fr.append(TableBodyRow(task));
+                        }          
+                    });
+        
+                    tableBody.innerHTML = '';
+                    tableBody.append(fr);
+                });
+            } else if (q === '') {
+                tasksService.getAllTasks()
+                .then(tasks => {
+                    const fr = document.createDocumentFragment();
+                    const tableBody = document.querySelector('tbody');
+                    const currentDate = new Date();
+                    const currentDay = currentDate.getDate();
+                    const currentMonth = currentDate.getMonth();
+                    const currentYear = currentDate.getFullYear();
+        
+                    tasks.forEach(task => {
+                        const deadlineDate = new Date(task.deadline);
+                        const deadlineDay = deadlineDate.getDate();
+                        const deadlineMonth = deadlineDate.getMonth();
+                        const deadlineYear = deadlineDate.getFullYear();
+                                        
+                        if ((currentDay === deadlineDay) && (currentMonth === deadlineMonth) && (currentYear === deadlineYear)) {
+                            fr.prepend(TableBodyRow(task));
+                        }   
+                    });
+        
+                    tableBody.innerHTML = '';
+                    tableBody.append(fr);
+                });
+            }
+            break;
+        }
+
     
         default:
             break;
