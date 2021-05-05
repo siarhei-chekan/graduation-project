@@ -215,8 +215,7 @@ export function search(e) {
                             break;
                         }
 
-                        case 3: {
-                            console.log('работает: 3!');
+                        case 3: {                            
                             const taskForWeek = tasks.filter(task => {
                                 const deadlineDate = new Date(task.deadline);
                                 const deadlineDay = deadlineDate.getDate();                   
