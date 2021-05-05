@@ -506,14 +506,50 @@ export function search(e) {
             break;
         }
         case sorting.nextYear: {
-            
+            if (q.length > 1) {
+                tasksService.getAllTasks()
+                .then(tasks => {                    
+                    const fr = document.createDocumentFragment();
+                    const tableBody = document.querySelector('tbody');
+                    const currentDate = new Date();
+                    const currentYear = currentDate.getFullYear();
+                    tasks.sort((task1, task2) => task1.deadline - task2.deadline);
+
+                    tasks.forEach(task => {
+                        const deadlineDate = new Date(task.deadline);
+                        const deadlineYear = deadlineDate.getFullYear();
+
+                        if ((task.heading).toLowerCase().includes(q) && (currentYear === deadlineYear)) {
+                            fr.prepend(TableBodyRow(task));
+                        }
+                    });
+
+                    tableBody.innerHTML = '';
+                    tableBody.prepend(fr);
+                });
+            } else if (q === '') {
+                tasksService.getAllTasks()
+                .then(tasks => {
+                    const fr = document.createDocumentFragment();
+                    const tableBody = document.querySelector('tbody');
+                    const currentDate = new Date();
+                    const currentYear = currentDate.getFullYear();
+                    tasks.sort((task1, task2) => task1.deadline - task2.deadline);
+
+                    tasks.forEach(task => {
+                        const deadlineDate = new Date(task.deadline);
+                        const deadlineYear = deadlineDate.getFullYear();
+
+                        if (currentYear === deadlineYear) {
+                            fr.prepend(TableBodyRow(task));
+                        }
+                    });
+
+                    tableBody.innerHTML = '';
+                    tableBody.prepend(fr);
+                });
+            }
             break;
         }
-
-    
-        default:
-            break;
-    }
-
-    
+    }    
 }
