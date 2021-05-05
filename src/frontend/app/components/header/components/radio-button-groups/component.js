@@ -17,6 +17,8 @@ export function RadioButtonGroup() {
         RadioButtonForNextYear()
         );
 
+    localStorage.setItem('sorting', 'all');
+
     return radioButtonGroup;
 }
 
